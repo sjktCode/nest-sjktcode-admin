@@ -1,0 +1,49 @@
+{
+  "name": "nest-vben-admin",
+  "version": "0.1.0",
+  "packageManager": "pnpm@8.10.2",
+  "description": "基于NestJs + sjktCode Admin编写的一款前后端分离的权限管理系统",
+  "author": {
+    "name": "sjktCode",
+    "email": "hi@sjktCode.cn",
+    "url": "https://github.com/sjktCode"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/sjktCode/nest-sjktCode-admin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjktCode/nest-sjktCode-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sjktCode/nest-sjktCode-admin/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.1.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "internal/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "pnpm install",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "bundle": "pnpm -C \"apps/api\" run bundle",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "turbo run stub",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap"
+  },
+  "devDependencies": {
+    "cross-env": "7.0.3",
+    "eslint": "^8.54.0",
+    "rimraf": "^5.0.5",
+    "turbo": "^1.10.16",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0"
+  }
+}
